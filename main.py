@@ -10,7 +10,7 @@ PORT = int(os.environ.get('PORT', 5000))
 #*************** Functions customers ***********
 
 #**************** End functions ************
-# logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
 #                     level=logging.INFO)
 
 updater = Updater(token = TOKEN, use_context = True)
