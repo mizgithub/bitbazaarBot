@@ -133,19 +133,7 @@ com_handlers = ConversationHandler(
     fallbacks=[CommandHandler('cancel',handlers.cancel)],
     allow_reentry=True
 )
-# com_handlers = [
-#     CommandHandler("start", start),
-#     #
-#     # CommandHandler("agent", agent),
-#     # CommandHandler("help", help),
-#     # CommandHandler("contact", contact),
-#     # CommandHandler("About", about),
-# ]
-
 dispatcher.add_handler(com_handlers)
 # updater.start_polling()
-updater.start_webhook(listen="0.0.0.0",
-                           port=int(PORT),
-                           url_path=TOKEN)
-updater.bot.setWebhook('https://bitbazaarbot.herokuapp.com/' + TOKEN)
+updater.start_webhook(listen="0.0.0.0",port=int(PORT), url_path=TOKEN,webhook_url = 'https://bitbazaarbot.herokuapp.com/' + TOKEN )
 updater.idle()
