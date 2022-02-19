@@ -140,9 +140,9 @@ com_handlers = ConversationHandler(
 # ]
 
 dispatcher.add_handler(com_handlers)
-updater.start_polling()
-# updater.start_webhook(listen="0.0.0.0",
-#                           port=int(PORT),
-#                           url_path=TOKEN)
-# updater.bot.setWebhook('https://yourherokuappname.herokuapp.com/' + TOKEN)
+# updater.start_polling()
+updater.start_webhook(listen="0.0.0.0",
+                           port=int(PORT),
+                           url_path=TOKEN)
+updater.bot.setWebhook('https://bitbazaarbot.herokuapp.com/' + TOKEN)
 updater.idle()
