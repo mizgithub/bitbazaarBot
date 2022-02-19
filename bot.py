@@ -6,7 +6,6 @@ from config import TOKEN
 import os
 PORT = int(os.environ.get('PORT', 5000))
 #states
-
 #*************** Functions customers ***********
 
 #**************** End functions ************
@@ -131,6 +130,6 @@ com_handlers = ConversationHandler(
 )
 dispatcher = updater.dispatcher
 dispatcher.add_handler(com_handlers)
-# updater.start_polling()
-updater.start_webhook(listen="0.0.0.0",port=int(PORT), url_path=TOKEN,webhook_url = 'https://bitbazaarbot.herokuapp.com/' + TOKEN )
+updater.start_polling()
+# updater.start_webhook(listen="0.0.0.0",port=int(PORT), url_path=TOKEN,webhook_url = 'https://bitbazaarbot.herokuapp.com/' + TOKEN )
 updater.idle()
