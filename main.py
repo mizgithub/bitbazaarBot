@@ -16,7 +16,13 @@ PORT = int(os.environ.get('PORT',  8443))
  # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',level=logging.INFO)
 logger = logging.getLogger(__name__)
-
+def run(updater):
+    # updater.start_polling()
+    updater.start_webhook(listen="0.0.0.0",
+                          port=int(PORT),
+                          url_path=TOKEN,
+                          webhook_url= 'https://bitbazaarbot.herokuapp.com/' + TOKEN)
+    updater.idle()
 if __name__ == '__main__':
     enty_commands = [
         CommandHandler('Start', handlers.start),
@@ -134,12 +140,4 @@ if __name__ == '__main__':
     updater = Updater(TOKEN,use_context=True)
     dispatcher = updater.dispatcher
     dispatcher.add_handler(com_handlers)
-    # updater.start_polling()
     run(updater)
-
-def run(updater):
-    updater.start_webhook(listen="0.0.0.0",
-                          port=int(PORT),
-                          url_path=TOKEN,
-                          webhook_url= 'https://bitbazaarbot.herokuapp.com/' + TOKEN)
-    updater.idle()
