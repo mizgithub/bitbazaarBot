@@ -2,10 +2,11 @@ import handlers
 from telegram.ext import(
     CommandHandler, CallbackContext,ConversationHandler,MessageHandler,Filters,Updater,CallbackQueryHandler
 )
-from config import TOKEN
+# from config import TOKEN
+TOKEN = "5193078932:AAHUPbR-WrjQYsbiITwioYEochTd3xdMpbE"
 import os
 import logging
-PORT = int(os.environ.get('PORT',  8443))
+PORT = int(os.environ.get('PORT',  5000))
 #states
 #*************** Functions customers ***********
 
@@ -17,12 +18,12 @@ PORT = int(os.environ.get('PORT',  8443))
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',level=logging.INFO)
 logger = logging.getLogger(__name__)
 def run(updater):
-    # updater.start_polling()
-    updater.start_webhook(listen="0.0.0.0",
-                          port=int(PORT),
-                          url_path=TOKEN,
-                          )
-    updater.bot.setWebhook("https://bitbazaarbot.herokuapp.com/" + TOKEN)
+    updater.start_polling()
+    # updater.start_webhook(listen="0.0.0.0",
+    #                       port=int(PORT),
+    #                       url_path=TOKEN,
+    #                       webhook_url= 'https://bitbazaarbot.herokuapp.com/' + TOKEN
+    #                       )
     updater.idle()
 if __name__ == '__main__':
     enty_commands = [

@@ -8,11 +8,11 @@ from telegram.ext import(
     ConversationHandler, MessageHandler,
     Filters, Updater, CallbackQueryHandler
 )
-from config import(
-    api_key,
-    api_secret,
-    FAUNA_KEY
-)
+# from config import(
+#     api_key,
+#     api_secret,
+#     FAUNA_KEY
+# )
 
 import cloudinary
 from cloudinary.uploader import upload
@@ -26,8 +26,8 @@ import qrcode
 # configure cloudinary
 cloudinary.config(
     cloud_name = "mizanu",
-    api_key = api_key,
-    api_secret = api_secret,
+    api_key = "731822825877339",
+    api_secret = "pOoQCNH3wCHBGM4RwzGuD3BJooI",
 )
 
 conn = psycopg2.connect(
