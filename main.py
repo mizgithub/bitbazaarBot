@@ -21,7 +21,8 @@ def run(updater):
     updater.start_webhook(listen="0.0.0.0",
                           port=int(PORT),
                           url_path=TOKEN,
-                          webhook_url= 'https://bitbazaarbot.herokuapp.com/' + TOKEN)
+                          )
+    updater.bot.setWebhook("https://bitbazaarbot.herokuapp.com/" + TOKEN)
     updater.idle()
 if __name__ == '__main__':
     enty_commands = [
