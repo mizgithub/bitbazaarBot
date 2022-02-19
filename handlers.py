@@ -31,10 +31,11 @@ cloudinary.config(
 )
 
 conn = psycopg2.connect(
-    host="john.db.elephantsql.com",
-    database="cwreugrx",
-    user="cwreugrx",
-    password="bhV1aV_MHcD9DTAe0x8IHCYooir_pBwZ")
+    host="ec2-18-235-114-62.compute-1.amazonaws.com",
+    database="dquhcsdnk10o",
+    user="rqbdhhwmqbdxvg",
+    port = "5432"
+    password="32f33e6febfa64aac2262d67ca47d5b59575de4dac475ed553e49c6c0430a18d")
 cur = conn.cursor()
 #fauna client configure
 #client = FaunaClient(secret = FAUNA_KEY)
