@@ -4,13 +4,14 @@ from telegram.ext import(
 )
 from config import TOKEN
 import os
-PORT = int(os.environ.get('PORT', 5000))
+import logging
+PORT = int(os.environ.get('PORT',  8443))
 #states
 #*************** Functions customers ***********
 
 #**************** End functions ************
 
-updater = Updater(TOKEN)
+updater = Updater(TOKEN,use_context=True)
 #print(updater)
  # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',level=logging.INFO)
@@ -130,6 +131,9 @@ com_handlers = ConversationHandler(
 )
 dispatcher = updater.dispatcher
 dispatcher.add_handler(com_handlers)
-updater.start_polling()
-# updater.start_webhook(listen="0.0.0.0",port=int(PORT), url_path=TOKEN,webhook_url = 'https://bitbazaarbot.herokuapp.com/' + TOKEN )
+# updater.start_polling()
+updater.start_webhook(listen="0.0.0.0",
+                              port=PORT,
+                              url_path=TOKEN,
+                              webhook_url= 'https://bitbazaarbot.herokuapp.com/' + TOKEN  )
 updater.idle()
